@@ -12,7 +12,7 @@ namespace BMI_Calculator
 {
     public partial class BMI_Calculator : Form
     {
-        private double userHeight;
+        private double userHeight { get; set; }
         private double userWeight;
         private double userAge;
         private float userBMI;
@@ -20,10 +20,17 @@ namespace BMI_Calculator
         {
             InitializeComponent();
         }
+        private double getUserHeight()
+        {
+            double userInputFeetOrMeters = Convert.ToDouble(textBoxHeightFeetorMeters.Text);
+            double userInputInchesOrCentimeters = Convert.ToDouble(textBoxHeightInchesOrCm.Text);
+            return userHeight = (userInputFeetOrMeters * 12) + userInputInchesOrCentimeters;
+        }
 
         private void calculateBtn_Click(object sender, EventArgs e)
         {
-            calculateBtn.Text = "Hello world!";
+            userHeight = getUserHeight();
+            calculateBtn.Text = $"{userHeight}";
         }
     }
 }
