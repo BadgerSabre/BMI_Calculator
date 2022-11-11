@@ -13,9 +13,10 @@ namespace BMI_Calculator
     public partial class BMI_Calculator : Form
     {
         private double userHeight { get; set; }
-        private double userWeight;
-        private double userAge;
+        private double userWeight { get; set; }
+        private double userAge { get; set; }
         private float userBMI;
+        private bool metricToggle = false;
         public BMI_Calculator()
         {
             InitializeComponent();
@@ -27,10 +28,24 @@ namespace BMI_Calculator
             return userHeight = (userInputFeetOrMeters * 12) + userInputInchesOrCentimeters;
         }
 
+        private double getUserWeight()
+        {
+            double userInputWeight = Convert.ToDouble(textBoxWeightLbOrKg.Text);
+            return userWeight = userInputWeight;
+        }
+
+        private double getUserAge()
+        {
+            double userInputAge = Convert.ToDouble(textBoxAge.Text);
+            return userAge = userInputAge;
+        }
+
         private void calculateBtn_Click(object sender, EventArgs e)
         {
             userHeight = getUserHeight();
-            calculateBtn.Text = $"{userHeight}";
+            userWeight = getUserWeight();
+            userAge = getUserAge();
+            calculateBtn.Text = $"{userAge}";
         }
     }
 }

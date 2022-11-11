@@ -60,6 +60,7 @@
             this.textBoxHeightFeetorMeters.Name = "textBoxHeightFeetorMeters";
             this.textBoxHeightFeetorMeters.Size = new System.Drawing.Size(89, 23);
             this.textBoxHeightFeetorMeters.TabIndex = 1;
+            this.textBoxHeightFeetorMeters.Text = "0";
             // 
             // textBoxHeightInchesOrCm
             // 
@@ -67,6 +68,7 @@
             this.textBoxHeightInchesOrCm.Name = "textBoxHeightInchesOrCm";
             this.textBoxHeightInchesOrCm.Size = new System.Drawing.Size(86, 23);
             this.textBoxHeightInchesOrCm.TabIndex = 2;
+            this.textBoxHeightInchesOrCm.Text = "0";
             // 
             // textBoxWeightLbOrKg
             // 
@@ -74,6 +76,7 @@
             this.textBoxWeightLbOrKg.Name = "textBoxWeightLbOrKg";
             this.textBoxWeightLbOrKg.Size = new System.Drawing.Size(199, 23);
             this.textBoxWeightLbOrKg.TabIndex = 3;
+            this.textBoxWeightLbOrKg.Text = "0";
             // 
             // textBoxAge
             // 
@@ -81,6 +84,7 @@
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(199, 23);
             this.textBoxAge.TabIndex = 4;
+            this.textBoxAge.Text = "0";
             // 
             // toggleMetric
             // 
