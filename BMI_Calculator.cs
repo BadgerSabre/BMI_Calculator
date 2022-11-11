@@ -15,12 +15,13 @@ namespace BMI_Calculator
         private double userHeight { get; set; }
         private double userWeight { get; set; }
         private double userAge { get; set; }
-        private float userBMI;
+        private double userBMI { get; set; }
         private bool metricToggle = false;
         public BMI_Calculator()
         {
             InitializeComponent();
         }
+        // Methods to capture user input
         private double getUserHeight()
         {
             double userInputFeetOrMeters = Convert.ToDouble(textBoxHeightFeetorMeters.Text);
@@ -39,13 +40,16 @@ namespace BMI_Calculator
             double userInputAge = Convert.ToDouble(textBoxAge.Text);
             return userAge = userInputAge;
         }
-
+        // Method to calculate BMI onClick
         private void calculateBtn_Click(object sender, EventArgs e)
         {
             userHeight = getUserHeight();
             userWeight = getUserWeight();
             userAge = getUserAge();
-            calculateBtn.Text = $"{userAge}";
+            userBMI = (userWeight / (userHeight * userHeight)) * 703;
+
+            // Display result
+            BMIResult.Text = $"{userBMI}";
         }
     }
 }
