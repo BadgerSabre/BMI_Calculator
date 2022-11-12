@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.calculateBtn = new System.Windows.Forms.Button();
-            this.textBoxHeightFeetorMeters = new System.Windows.Forms.TextBox();
-            this.textBoxHeightInchesOrCm = new System.Windows.Forms.TextBox();
-            this.textBoxWeightLbOrKg = new System.Windows.Forms.TextBox();
-            this.textBoxAge = new System.Windows.Forms.TextBox();
             this.toggleMetric = new System.Windows.Forms.RadioButton();
             this.heightLabel = new System.Windows.Forms.Label();
             this.weightLabel = new System.Windows.Forms.Label();
@@ -42,6 +38,15 @@
             this.bigHeightUnits = new System.Windows.Forms.Label();
             this.littleHeightUnits = new System.Windows.Forms.Label();
             this.weightUnits = new System.Windows.Forms.Label();
+            this.errorMessageDisplay = new System.Windows.Forms.Label();
+            this.textBoxHeightFeetorMeters = new System.Windows.Forms.NumericUpDown();
+            this.textBoxHeightInchesOrCm = new System.Windows.Forms.NumericUpDown();
+            this.textBoxWeightLbOrKg = new System.Windows.Forms.NumericUpDown();
+            this.textBoxAge = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxHeightFeetorMeters)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxHeightInchesOrCm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxWeightLbOrKg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxAge)).BeginInit();
             this.SuspendLayout();
             // 
             // calculateBtn
@@ -54,42 +59,10 @@
             this.calculateBtn.UseVisualStyleBackColor = true;
             this.calculateBtn.Click += new System.EventHandler(this.calculateBtn_Click);
             // 
-            // textBoxHeightFeetorMeters
-            // 
-            this.textBoxHeightFeetorMeters.Location = new System.Drawing.Point(153, 24);
-            this.textBoxHeightFeetorMeters.Name = "textBoxHeightFeetorMeters";
-            this.textBoxHeightFeetorMeters.Size = new System.Drawing.Size(89, 23);
-            this.textBoxHeightFeetorMeters.TabIndex = 1;
-            this.textBoxHeightFeetorMeters.Text = "0";
-            // 
-            // textBoxHeightInchesOrCm
-            // 
-            this.textBoxHeightInchesOrCm.Location = new System.Drawing.Point(266, 24);
-            this.textBoxHeightInchesOrCm.Name = "textBoxHeightInchesOrCm";
-            this.textBoxHeightInchesOrCm.Size = new System.Drawing.Size(86, 23);
-            this.textBoxHeightInchesOrCm.TabIndex = 2;
-            this.textBoxHeightInchesOrCm.Text = "0";
-            // 
-            // textBoxWeightLbOrKg
-            // 
-            this.textBoxWeightLbOrKg.Location = new System.Drawing.Point(153, 76);
-            this.textBoxWeightLbOrKg.Name = "textBoxWeightLbOrKg";
-            this.textBoxWeightLbOrKg.Size = new System.Drawing.Size(199, 23);
-            this.textBoxWeightLbOrKg.TabIndex = 3;
-            this.textBoxWeightLbOrKg.Text = "0";
-            // 
-            // textBoxAge
-            // 
-            this.textBoxAge.Location = new System.Drawing.Point(153, 131);
-            this.textBoxAge.Name = "textBoxAge";
-            this.textBoxAge.Size = new System.Drawing.Size(199, 23);
-            this.textBoxAge.TabIndex = 4;
-            this.textBoxAge.Text = "0";
-            // 
             // toggleMetric
             // 
             this.toggleMetric.AutoSize = true;
-            this.toggleMetric.Location = new System.Drawing.Point(198, 160);
+            this.toggleMetric.Location = new System.Drawing.Point(198, 166);
             this.toggleMetric.Name = "toggleMetric";
             this.toggleMetric.Size = new System.Drawing.Size(93, 19);
             this.toggleMetric.TabIndex = 5;
@@ -126,8 +99,11 @@
             // 
             // BMIResult
             // 
+            this.BMIResult.BackColor = System.Drawing.SystemColors.HighlightText;
             this.BMIResult.Location = new System.Drawing.Point(191, 257);
+            this.BMIResult.MaxLength = 3;
             this.BMIResult.Name = "BMIResult";
+            this.BMIResult.ReadOnly = true;
             this.BMIResult.Size = new System.Drawing.Size(100, 23);
             this.BMIResult.TabIndex = 9;
             // 
@@ -167,11 +143,67 @@
             this.weightUnits.TabIndex = 13;
             this.weightUnits.Text = "lb";
             // 
+            // errorMessageDisplay
+            // 
+            this.errorMessageDisplay.AutoSize = true;
+            this.errorMessageDisplay.Location = new System.Drawing.Point(222, 296);
+            this.errorMessageDisplay.Name = "errorMessageDisplay";
+            this.errorMessageDisplay.Size = new System.Drawing.Size(0, 15);
+            this.errorMessageDisplay.TabIndex = 14;
+            // 
+            // textBoxHeightFeetorMeters
+            // 
+            this.textBoxHeightFeetorMeters.Location = new System.Drawing.Point(157, 25);
+            this.textBoxHeightFeetorMeters.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.textBoxHeightFeetorMeters.Name = "textBoxHeightFeetorMeters";
+            this.textBoxHeightFeetorMeters.Size = new System.Drawing.Size(82, 23);
+            this.textBoxHeightFeetorMeters.TabIndex = 15;
+            // 
+            // textBoxHeightInchesOrCm
+            // 
+            this.textBoxHeightInchesOrCm.Location = new System.Drawing.Point(266, 25);
+            this.textBoxHeightInchesOrCm.Maximum = new decimal(new int[] {
+            11,
+            0,
+            0,
+            0});
+            this.textBoxHeightInchesOrCm.Name = "textBoxHeightInchesOrCm";
+            this.textBoxHeightInchesOrCm.Size = new System.Drawing.Size(86, 23);
+            this.textBoxHeightInchesOrCm.TabIndex = 16;
+            // 
+            // textBoxWeightLbOrKg
+            // 
+            this.textBoxWeightLbOrKg.Location = new System.Drawing.Point(157, 82);
+            this.textBoxWeightLbOrKg.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.textBoxWeightLbOrKg.Name = "textBoxWeightLbOrKg";
+            this.textBoxWeightLbOrKg.Size = new System.Drawing.Size(195, 23);
+            this.textBoxWeightLbOrKg.TabIndex = 17;
+            // 
+            // textBoxAge
+            // 
+            this.textBoxAge.Location = new System.Drawing.Point(157, 137);
+            this.textBoxAge.Name = "textBoxAge";
+            this.textBoxAge.Size = new System.Drawing.Size(195, 23);
+            this.textBoxAge.TabIndex = 18;
+            // 
             // BMI_Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 331);
+            this.Controls.Add(this.textBoxAge);
+            this.Controls.Add(this.textBoxWeightLbOrKg);
+            this.Controls.Add(this.textBoxHeightInchesOrCm);
+            this.Controls.Add(this.textBoxHeightFeetorMeters);
+            this.Controls.Add(this.errorMessageDisplay);
             this.Controls.Add(this.weightUnits);
             this.Controls.Add(this.littleHeightUnits);
             this.Controls.Add(this.bigHeightUnits);
@@ -181,13 +213,13 @@
             this.Controls.Add(this.weightLabel);
             this.Controls.Add(this.heightLabel);
             this.Controls.Add(this.toggleMetric);
-            this.Controls.Add(this.textBoxAge);
-            this.Controls.Add(this.textBoxWeightLbOrKg);
-            this.Controls.Add(this.textBoxHeightInchesOrCm);
-            this.Controls.Add(this.textBoxHeightFeetorMeters);
             this.Controls.Add(this.calculateBtn);
             this.Name = "BMI_Calculator";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxHeightFeetorMeters)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxHeightInchesOrCm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxWeightLbOrKg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxAge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,10 +228,6 @@
         #endregion
 
         private System.Windows.Forms.Button calculateBtn;
-        private System.Windows.Forms.TextBox textBoxHeightFeetorMeters;
-        private System.Windows.Forms.TextBox textBoxHeightInchesOrCm;
-        private System.Windows.Forms.TextBox textBoxWeightLbOrKg;
-        private System.Windows.Forms.TextBox textBoxAge;
         private System.Windows.Forms.RadioButton toggleMetric;
         private System.Windows.Forms.Label heightLabel;
         private System.Windows.Forms.Label weightLabel;
@@ -209,5 +237,10 @@
         private System.Windows.Forms.Label bigHeightUnits;
         private System.Windows.Forms.Label littleHeightUnits;
         private System.Windows.Forms.Label weightUnits;
+        private System.Windows.Forms.Label errorMessageDisplay;
+        private System.Windows.Forms.NumericUpDown textBoxHeightFeetorMeters;
+        private System.Windows.Forms.NumericUpDown textBoxHeightInchesOrCm;
+        private System.Windows.Forms.NumericUpDown textBoxWeightLbOrKg;
+        private System.Windows.Forms.NumericUpDown textBoxAge;
     }
 }
