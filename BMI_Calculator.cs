@@ -53,7 +53,7 @@ namespace BMI_Calculator
             {
                 userBMI = (userWeight / (userHeight * userHeight)) * 703;
                 // Display result
-                BMIResult.Text = $"{userBMI}";
+                BMIResult.Text = $"{Math.Round(userBMI, 1)}";
             } 
             else
             {
