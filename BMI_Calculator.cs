@@ -57,7 +57,7 @@ namespace BMI_Calculator
             } 
             else
             {
-                errorMessageDisplay.Text = "Invalid User Input. Please try again!";
+                errorMessageDisplay.Text = "Invalid User Input. Please try again.";
             }
 
         }
