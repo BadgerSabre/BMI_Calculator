@@ -22,6 +22,8 @@ namespace BMI_Calculator
         {
             InitializeComponent();
         }
+
+
         // Methods to capture user input
         private double getUserHeight()
         {
@@ -42,6 +44,23 @@ namespace BMI_Calculator
             return userAge = userInputAge;
         }
         
+        private void toggleMetric_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toggleMetric.Checked == true)
+            {
+               metricToggle = true;
+               bigHeightUnits.Text = "m";
+               littleHeightUnits.Text = "cm";
+               weightUnits.Text = "kg";
+            } 
+            else
+            {
+                metricToggle = false;
+                bigHeightUnits.Text = "ft";
+                littleHeightUnits.Text = "in";
+                weightUnits.Text = "lb";
+            }
+        }
         // Method to calculate BMI onClick
         private void calculateBtn_Click(object sender, EventArgs e)
         {
