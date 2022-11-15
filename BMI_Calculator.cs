@@ -27,9 +27,18 @@ namespace BMI_Calculator
         // Methods to capture user input
         private double getUserHeight()
         {
-            double userInputFeetOrMeters = Convert.ToDouble(textBoxHeightFeetorMeters.Text);
-            double userInputInchesOrCentimeters = Convert.ToDouble(textBoxHeightInchesOrCm.Text);
-            return userHeight = (userInputFeetOrMeters * 12) + userInputInchesOrCentimeters;
+            if (metricToggle)
+            {
+                double userInputFeetOrMeters = Convert.ToDouble(textBoxHeightFeetorMeters.Text);
+                double userInputInchesOrCentimeters = Convert.ToDouble(textBoxHeightInchesOrCm.Text);
+                return userHeight = (userInputFeetOrMeters * 100) + userInputInchesOrCentimeters;
+            }
+            else
+            {
+                double userInputFeetOrMeters = Convert.ToDouble(textBoxHeightFeetorMeters.Text);
+                double userInputInchesOrCentimeters = Convert.ToDouble(textBoxHeightInchesOrCm.Text);
+                return userHeight = (userInputFeetOrMeters * 12) + userInputInchesOrCentimeters;
+            }
         }
 
         private double getUserWeight()
@@ -46,12 +55,13 @@ namespace BMI_Calculator
         
         private void toggleMetric_CheckedChanged(object sender, EventArgs e)
         {
-            if (toggleMetric.Checked == true)
+            if (toggleMetric.Checked)
             {
                metricToggle = true;
                bigHeightUnits.Text = "m";
                littleHeightUnits.Text = "cm";
                weightUnits.Text = "kg";
+               textBoxHeightInchesOrCm.Maximum = 999;
             } 
             else
             {
@@ -59,8 +69,15 @@ namespace BMI_Calculator
                 bigHeightUnits.Text = "ft";
                 littleHeightUnits.Text = "in";
                 weightUnits.Text = "lb";
+                textBoxHeightInchesOrCm.Maximum = 11;
             }
         }
+        // Method to change BMIResult text and truncate result
+        private void displayUserBMI()
+        {
+            BMIResult.Text = $"{Math.Round(userBMI, 1)}";
+        }
+
         // Method to calculate BMI onClick
         private void calculateBtn_Click(object sender, EventArgs e)
         {
@@ -68,12 +85,17 @@ namespace BMI_Calculator
             userWeight = getUserWeight();
             userAge = getUserAge();
 
-            if (userHeight > 0 && userWeight > 0 && userAge > 0)
+            if (userHeight > 0 && userWeight > 0 && userAge > 0 && metricToggle == false)
             {
                 userBMI = (userWeight / (userHeight * userHeight)) * 703;
-                // Display result
-                BMIResult.Text = $"{Math.Round(userBMI, 1)}";
+                displayUserBMI();
             } 
+            if (userHeight > 0 && userWeight > 0 && userAge > 0 && metricToggle)
+            {
+                double numerator = userWeight / userHeight;
+                userBMI = (numerator / userHeight) * 10000;
+                displayUserBMI();
+            }
             else
             {
                 errorMessageDisplay.Text = "Invalid User Input. Please try again.";
