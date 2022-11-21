@@ -27,30 +27,51 @@ namespace BMI_Calculator
         // Methods to capture user input
         private double getUserHeight()
         {
-            if (metricToggle)
+            if(String.IsNullOrEmpty(textBoxHeightFeetorMeters.Text) || String.IsNullOrEmpty(textBoxHeightInchesOrCm.Text))
             {
-                double userInputFeetOrMeters = Convert.ToDouble(textBoxHeightFeetorMeters.Text);
-                double userInputInchesOrCentimeters = Convert.ToDouble(textBoxHeightInchesOrCm.Text);
-                return userHeight = (userInputFeetOrMeters * 100) + userInputInchesOrCentimeters;
+                return userHeight = 0;
             }
             else
             {
-                double userInputFeetOrMeters = Convert.ToDouble(textBoxHeightFeetorMeters.Text);
-                double userInputInchesOrCentimeters = Convert.ToDouble(textBoxHeightInchesOrCm.Text);
-                return userHeight = (userInputFeetOrMeters * 12) + userInputInchesOrCentimeters;
+                if (metricToggle)
+                {
+                    double userInputFeetOrMeters = Convert.ToDouble(textBoxHeightFeetorMeters.Text);
+                    double userInputInchesOrCentimeters = Convert.ToDouble(textBoxHeightInchesOrCm.Text);
+                    return userHeight = (userInputFeetOrMeters * 100) + userInputInchesOrCentimeters;
+                }
+                else
+                {
+                    double userInputFeetOrMeters = Convert.ToDouble(textBoxHeightFeetorMeters.Text);
+                    double userInputInchesOrCentimeters = Convert.ToDouble(textBoxHeightInchesOrCm.Text);
+                    return userHeight = (userInputFeetOrMeters * 12) + userInputInchesOrCentimeters;
+                }
             }
         }
 
         private double getUserWeight()
         {
-            double userInputWeight = Convert.ToDouble(textBoxWeightLbOrKg.Text);
-            return userWeight = userInputWeight;
+            if (String.IsNullOrEmpty(textBoxWeightLbOrKg.Text))
+            {
+                return userWeight = 0;
+            } 
+            else
+            {
+                double userInputWeight = Convert.ToDouble(textBoxWeightLbOrKg.Text);
+                return userWeight = userInputWeight;
+            }
         }
 
         private double getUserAge()
         {
-            double userInputAge = Convert.ToDouble(textBoxAge.Text);
-            return userAge = userInputAge;
+            if (String.IsNullOrEmpty(textBoxAge.Text))
+            {
+                return userAge = 0;
+            }
+            else
+            {
+                double userInputAge = Convert.ToDouble(textBoxAge.Text);
+                return userAge = userInputAge;
+            }
         }
         
         private void toggleMetric_CheckedChanged(object sender, EventArgs e)

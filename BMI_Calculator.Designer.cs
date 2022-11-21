@@ -31,7 +31,6 @@
             this.calculateBtn = new System.Windows.Forms.Button();
             this.BMIResult = new System.Windows.Forms.TextBox();
             this.resultLabel = new System.Windows.Forms.Label();
-            this.errorMessageDisplay = new System.Windows.Forms.Label();
             this.weightUnits = new System.Windows.Forms.Label();
             this.weightLabel = new System.Windows.Forms.Label();
             this.littleHeightUnits = new System.Windows.Forms.Label();
@@ -45,12 +44,15 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.toggleMetric = new System.Windows.Forms.CheckBox();
+            this.errorMessageDisplay = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxHeightInchesOrCm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxWeightLbOrKg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxHeightFeetorMeters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxAge)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // calculateBtn
@@ -86,19 +88,11 @@
             this.resultLabel.Text = "Your BMI:";
             this.resultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // errorMessageDisplay
-            // 
-            this.errorMessageDisplay.AutoSize = true;
-            this.errorMessageDisplay.Location = new System.Drawing.Point(222, 296);
-            this.errorMessageDisplay.Name = "errorMessageDisplay";
-            this.errorMessageDisplay.Size = new System.Drawing.Size(0, 15);
-            this.errorMessageDisplay.TabIndex = 14;
-            // 
             // weightUnits
             // 
             this.weightUnits.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.weightUnits.AutoSize = true;
-            this.weightUnits.Location = new System.Drawing.Point(238, 64);
+            this.weightUnits.Location = new System.Drawing.Point(232, 64);
             this.weightUnits.Name = "weightUnits";
             this.weightUnits.Size = new System.Drawing.Size(17, 15);
             this.weightUnits.TabIndex = 13;
@@ -110,7 +104,7 @@
             this.weightLabel.AutoSize = true;
             this.weightLabel.Location = new System.Drawing.Point(3, 64);
             this.weightLabel.Name = "weightLabel";
-            this.weightLabel.Size = new System.Drawing.Size(80, 15);
+            this.weightLabel.Size = new System.Drawing.Size(78, 15);
             this.weightLabel.TabIndex = 7;
             this.weightLabel.Text = "Your Weight:";
             this.weightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -119,7 +113,7 @@
             // 
             this.littleHeightUnits.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.littleHeightUnits.AutoSize = true;
-            this.littleHeightUnits.Location = new System.Drawing.Point(417, 16);
+            this.littleHeightUnits.Location = new System.Drawing.Point(407, 16);
             this.littleHeightUnits.Name = "littleHeightUnits";
             this.littleHeightUnits.Size = new System.Drawing.Size(17, 15);
             this.littleHeightUnits.TabIndex = 12;
@@ -131,7 +125,7 @@
             this.ageLabel.AutoSize = true;
             this.ageLabel.Location = new System.Drawing.Point(3, 115);
             this.ageLabel.Name = "ageLabel";
-            this.ageLabel.Size = new System.Drawing.Size(80, 15);
+            this.ageLabel.Size = new System.Drawing.Size(78, 15);
             this.ageLabel.TabIndex = 8;
             this.ageLabel.Text = "Your Age:";
             this.ageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -139,14 +133,14 @@
             // textBoxHeightInchesOrCm
             // 
             this.textBoxHeightInchesOrCm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxHeightInchesOrCm.Location = new System.Drawing.Point(268, 12);
+            this.textBoxHeightInchesOrCm.Location = new System.Drawing.Point(262, 12);
             this.textBoxHeightInchesOrCm.Maximum = new decimal(new int[] {
             11,
             0,
             0,
             0});
             this.textBoxHeightInchesOrCm.Name = "textBoxHeightInchesOrCm";
-            this.textBoxHeightInchesOrCm.Size = new System.Drawing.Size(143, 23);
+            this.textBoxHeightInchesOrCm.Size = new System.Drawing.Size(139, 23);
             this.textBoxHeightInchesOrCm.TabIndex = 16;
             // 
             // heightLabel
@@ -155,7 +149,7 @@
             this.heightLabel.AutoSize = true;
             this.heightLabel.Location = new System.Drawing.Point(3, 16);
             this.heightLabel.Name = "heightLabel";
-            this.heightLabel.Size = new System.Drawing.Size(80, 15);
+            this.heightLabel.Size = new System.Drawing.Size(78, 15);
             this.heightLabel.TabIndex = 6;
             this.heightLabel.Text = "Your Height:";
             this.heightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -163,42 +157,42 @@
             // textBoxWeightLbOrKg
             // 
             this.textBoxWeightLbOrKg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxWeightLbOrKg.Location = new System.Drawing.Point(89, 60);
+            this.textBoxWeightLbOrKg.Location = new System.Drawing.Point(87, 60);
             this.textBoxWeightLbOrKg.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.textBoxWeightLbOrKg.Name = "textBoxWeightLbOrKg";
-            this.textBoxWeightLbOrKg.Size = new System.Drawing.Size(143, 23);
+            this.textBoxWeightLbOrKg.Size = new System.Drawing.Size(139, 23);
             this.textBoxWeightLbOrKg.TabIndex = 17;
             // 
             // textBoxHeightFeetorMeters
             // 
             this.textBoxHeightFeetorMeters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxHeightFeetorMeters.Location = new System.Drawing.Point(89, 12);
+            this.textBoxHeightFeetorMeters.Location = new System.Drawing.Point(87, 12);
             this.textBoxHeightFeetorMeters.Maximum = new decimal(new int[] {
             9,
             0,
             0,
             0});
             this.textBoxHeightFeetorMeters.Name = "textBoxHeightFeetorMeters";
-            this.textBoxHeightFeetorMeters.Size = new System.Drawing.Size(143, 23);
+            this.textBoxHeightFeetorMeters.Size = new System.Drawing.Size(139, 23);
             this.textBoxHeightFeetorMeters.TabIndex = 15;
             // 
             // textBoxAge
             // 
             this.textBoxAge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxAge.Location = new System.Drawing.Point(89, 111);
+            this.textBoxAge.Location = new System.Drawing.Point(87, 111);
             this.textBoxAge.Name = "textBoxAge";
-            this.textBoxAge.Size = new System.Drawing.Size(143, 23);
+            this.textBoxAge.Size = new System.Drawing.Size(139, 23);
             this.textBoxAge.TabIndex = 18;
             // 
             // bigHeightUnits
             // 
             this.bigHeightUnits.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.bigHeightUnits.AutoSize = true;
-            this.bigHeightUnits.Location = new System.Drawing.Point(238, 16);
+            this.bigHeightUnits.Location = new System.Drawing.Point(232, 16);
             this.bigHeightUnits.Name = "bigHeightUnits";
             this.bigHeightUnits.Size = new System.Drawing.Size(15, 15);
             this.bigHeightUnits.TabIndex = 11;
@@ -214,7 +208,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.80597F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.80597F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
             this.tableLayoutPanel1.Controls.Add(this.bigHeightUnits, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxAge, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBoxHeightFeetorMeters, 1, 0);
@@ -225,7 +219,7 @@
             this.tableLayoutPanel1.Controls.Add(this.littleHeightUnits, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.weightLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.weightUnits, 2, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(31, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.33831F));
@@ -245,7 +239,7 @@
             this.tableLayoutPanel2.Controls.Add(this.resultLabel, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.BMIResult, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.toggleMetric, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(28, 187);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(31, 187);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.53815F));
@@ -268,14 +262,38 @@
             this.toggleMetric.UseVisualStyleBackColor = true;
             this.toggleMetric.CheckedChanged += new System.EventHandler(this.toggleMetric_CheckedChanged);
             // 
+            // errorMessageDisplay
+            // 
+            this.errorMessageDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorMessageDisplay.AutoSize = true;
+            this.errorMessageDisplay.Location = new System.Drawing.Point(3, 3);
+            this.errorMessageDisplay.Name = "errorMessageDisplay";
+            this.errorMessageDisplay.Size = new System.Drawing.Size(359, 15);
+            this.errorMessageDisplay.TabIndex = 21;
+            this.errorMessageDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.errorMessageDisplay, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(141, 163);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(365, 22);
+            this.tableLayoutPanel3.TabIndex = 22;
+            // 
             // BMI_Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 331);
+            this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.errorMessageDisplay);
             this.Name = "BMI_Calculator";
             this.Text = "Desktop BMI Calculator";
             ((System.ComponentModel.ISupportInitialize)(this.textBoxHeightInchesOrCm)).EndInit();
@@ -286,8 +304,9 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -296,7 +315,6 @@
         private System.Windows.Forms.Button calculateBtn;
         private System.Windows.Forms.TextBox BMIResult;
         private System.Windows.Forms.Label resultLabel;
-        private System.Windows.Forms.Label errorMessageDisplay;
         private System.Windows.Forms.Label weightUnits;
         private System.Windows.Forms.Label weightLabel;
         private System.Windows.Forms.Label littleHeightUnits;
@@ -310,5 +328,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.CheckBox toggleMetric;
+        private System.Windows.Forms.Label errorMessageDisplay;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }
