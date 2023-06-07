@@ -27,7 +27,7 @@ namespace BMI_Calculator
         // Methods to capture user input
         private double getUserHeight()
         {
-            if(String.IsNullOrEmpty(textBoxHeightFeetorMeters.Text) || String.IsNullOrEmpty(textBoxHeightInchesOrCm.Text))
+            if(string.IsNullOrEmpty(textBoxHeightFeetorMeters.Text) || string.IsNullOrEmpty(textBoxHeightInchesOrCm.Text))
             {
                 return userHeight = 0;
             }
@@ -50,7 +50,7 @@ namespace BMI_Calculator
 
         private double getUserWeight()
         {
-            if (String.IsNullOrEmpty(textBoxWeightLbOrKg.Text))
+            if (string.IsNullOrEmpty(textBoxWeightLbOrKg.Text))
             {
                 return userWeight = 0;
             } 
@@ -63,7 +63,7 @@ namespace BMI_Calculator
 
         private double getUserAge()
         {
-            if (String.IsNullOrEmpty(textBoxAge.Text))
+            if (string.IsNullOrEmpty(textBoxAge.Text))
             {
                 return userAge = 0;
             }
@@ -105,17 +105,20 @@ namespace BMI_Calculator
             userHeight = getUserHeight();
             userWeight = getUserWeight();
             userAge = getUserAge();
+            errorMessageDisplay.Text = "";
 
             if (userHeight > 0 && userWeight > 0 && userAge > 0 && metricToggle == false)
             {
                 userBMI = (userWeight / (userHeight * userHeight)) * 703;
                 displayUserBMI();
+                return;
             } 
             if (userHeight > 0 && userWeight > 0 && userAge > 0 && metricToggle)
             {
                 double numerator = userWeight / userHeight;
                 userBMI = (numerator / userHeight) * 10000;
                 displayUserBMI();
+                return;
             }
             else
             {
